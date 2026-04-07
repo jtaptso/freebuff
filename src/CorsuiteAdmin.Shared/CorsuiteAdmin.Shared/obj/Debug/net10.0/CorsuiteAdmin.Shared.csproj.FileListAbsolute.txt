@@ -1,0 +1,11 @@
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/bin/Debug/net10.0/CorsuiteAdmin.Shared.deps.json
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/bin/Debug/net10.0/CorsuiteAdmin.Shared.dll
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/bin/Debug/net10.0/CorsuiteAdmin.Shared.pdb
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.AssemblyInfoInputs.cache
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.AssemblyInfo.cs
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.csproj.CoreCompileInputs.cache
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.dll
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/refint/CorsuiteAdmin.Shared.dll
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.pdb
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/ref/CorsuiteAdmin.Shared.dll

@@ -1,0 +1,103 @@
+{
+  "version": 2,
+  "dgSpecHash": "+9nlEEXFVUg=",
+  "success": true,
+  "projectFilePath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+  "expectedPackageFiles": [
+    "/home/mtaptso/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/blazorise/2.0.0/blazorise.2.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/blazorise.bootstrap5/2.0.0/blazorise.bootstrap5.2.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/blazorise.icons.fontawesome/2.0.0/blazorise.icons.fontawesome.2.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/blazorise.licensing/1.3.0/blazorise.licensing.1.3.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/interop.sapbobscom/8.82.76/interop.sapbobscom.8.82.76.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.0/microsoft.aspnetcore.app.internal.assets.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.data.sqlclient/5.2.0/microsoft.data.sqlclient.5.2.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.2.0/microsoft.data.sqlclient.sni.runtime.5.2.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.data.sqlite.core/10.0.0/microsoft.data.sqlite.core.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore/10.0.0/microsoft.entityframeworkcore.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore.abstractions/10.0.0/microsoft.entityframeworkcore.abstractions.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.0/microsoft.entityframeworkcore.analyzers.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore.relational/10.0.0/microsoft.entityframeworkcore.relational.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore.sqlite/10.0.0/microsoft.entityframeworkcore.sqlite.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/10.0.0/microsoft.entityframeworkcore.sqlite.core.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.extensions.dependencymodel/10.0.0/microsoft.extensions.dependencymodel.10.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identity.client/4.56.0/microsoft.identity.client.4.56.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identity.client.extensions.msal/4.56.0/microsoft.identity.client.extensions.msal.4.56.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.abstractions/6.35.0/microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.35.0/microsoft.identitymodel.jsonwebtokens.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.logging/6.35.0/microsoft.identitymodel.logging.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.protocols/6.35.0/microsoft.identitymodel.protocols.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.35.0/microsoft.identitymodel.protocols.openidconnect.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.identitymodel.tokens/6.35.0/microsoft.identitymodel.tokens.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.11/sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/sqlitepclraw.core/2.1.11/sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.11/sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.11/sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/swashbuckle.aspnetcore/7.0.0/swashbuckle.aspnetcore.7.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/swashbuckle.aspnetcore.swagger/7.0.0/swashbuckle.aspnetcore.swagger.7.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/swashbuckle.aspnetcore.swaggergen/7.0.0/swashbuckle.aspnetcore.swaggergen.7.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/swashbuckle.aspnetcore.swaggerui/7.0.0/swashbuckle.aspnetcore.swaggerui.7.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.identitymodel.tokens.jwt/6.35.0/system.identitymodel.tokens.jwt.6.35.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.io.filesystem.accesscontrol/5.0.0/system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.runtime.caching/8.0.0/system.runtime.caching.8.0.0.nupkg.sha512",
+    "/home/mtaptso/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "projectPath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
+      "projectPath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "projectPath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known low severity vulnerability, https://github.com/advisories/GHSA-x674-v45j-fwxw",
+      "projectPath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

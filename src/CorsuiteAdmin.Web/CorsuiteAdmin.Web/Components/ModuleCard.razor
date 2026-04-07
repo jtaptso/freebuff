@@ -1,0 +1,81 @@
+<div class="card h-100 module-card">
+    <div class="card-body">
+        <div class="d-flex align-items-start mb-3">
+            <div class="module-icon">
+                <i class="bi bi-file-earmark-code"></i>
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h5 class="card-title mb-1">@Module.Name</h5>
+                <span class="badge bg-secondary">@Module.Version</span>
+            </div>
+            <div class="status-indicator @GetStatusClass()"></div>
+        </div>
+        
+        <p class="card-text small text-muted mb-2">
+            @if (!string.IsNullOrEmpty(Module.Description))
+            {
+                @Module.Description
+            }
+            else
+            {
+                <em>No description</em>
+            }
+        </p>
+        
+        <div class="module-meta">
+            <small class="text-muted">
+                <i class="bi bi-calendar me-1"></i>
+                Added: @Module.AddedDate.ToString("yyyy-MM-dd")
+            </small>
+            <small class="text-muted ms-2">
+                <i class="bi bi-hdd me-1"></i>
+                @FormatFileSize(Module.FileSize)
+            </small>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent">
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-sm btn-outline-primary" @onclick="OnEdit">
+                <i class="bi bi-pencil me-1"></i>Edit
+            </button>
+            <button class="btn btn-sm btn-outline-danger" @onclick="OnDelete">
+                <i class="bi bi-trash me-1"></i>Delete
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public DllModuleDto Module { get; set; } = null!;
+
+    [Parameter]
+    public EventCallback<DllModuleDto> OnEditClick { get; set; }
+
+    [Parameter]
+    public EventCallback<DllModuleDto> OnDeleteClick { get; set; }
+
+    private string GetStatusClass() => Module.Status switch
+    {
+        ModuleStatus.Active => "status-active",
+        ModuleStatus.Inactive => "status-inactive",
+        ModuleStatus.Error => "status-error",
+        _ => ""
+    };
+
+    private string FormatFileSize(long bytes)
+    {
+        string[] sizes = { "B", "KB", "MB", "GB" };
+        int order = 0;
+        double size = bytes;
+        while (size >= 1024 && order < sizes.Length - 1)
+        {
+            order++;
+            size /= 1024;
+        }
+        return $"{size:0.##} {sizes[order]}";
+    }
+
+    private void OnEdit() => OnEditClick.InvokeAsync(Module);
+    private void OnDelete() => OnDeleteClick.InvokeAsync(Module);
+}

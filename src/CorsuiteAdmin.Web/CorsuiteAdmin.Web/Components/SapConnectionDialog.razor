@@ -1,0 +1,233 @@
+@if (IsVisible)
+{
+    <div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-database-gear me-2"></i>Connect to SAP Business One
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" @onclick="OnClose"></button>
+                </div>
+                <div class="modal-body">
+                    @if (!string.IsNullOrEmpty(ErrorMessage))
+                    {
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-triangle me-2"></i>@ErrorMessage
+                        </div>
+                    }
+
+                    <ul class="nav nav-tabs mb-3" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link @(SelectedTab == "diapi" ? "active" : "")" @onclick="SelectDiApi">
+                                <i class="bi bi-plug me-1"></i>DI API
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link @(SelectedTab == "sql" ? "active" : "")" @onclick="SelectSql">
+                                <i class="bi bi-database me-1"></i>SQL Query
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link @(SelectedTab == "file" ? "active" : "")" @onclick="SelectFile">
+                                <i class="bi bi-folder me-1"></i>File Scan
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        @if (SelectedTab == "diapi")
+                        {
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">SAP Server</label>
+                                    <input type="text" class="form-control" @bind="Connection.Server" 
+                                           placeholder="e.g., 127.0.0.1">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">License Server</label>
+                                    <input type="text" class="form-control" @bind="Connection.LicenseServer"
+                                           placeholder="e.g., 127.0.0.1:30000">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Company Database</label>
+                                    <input type="text" class="form-control" @bind="Connection.CompanyDB"
+                                           placeholder="e.g., SBO_Demo">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Database Type</label>
+                                    <select class="form-select" @bind="Connection.DbType">
+                                        <option value="dst_MSSQL2022">SQL Server 2022</option>
+                                        <option value="dst_MSSQL2019">SQL Server 2019</option>
+                                        <option value="dst_MSSQL2017">SQL Server 2017</option>
+                                        <option value="dst_HANADB">SAP HANA</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">SAP Username</label>
+                                    <input type="text" class="form-control" @bind="Connection.UserName"
+                                           placeholder="e.g., manager">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">SAP Password</label>
+                                    <input type="password" class="form-control" @bind="Connection.Password">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">DB Username</label>
+                                    <input type="text" class="form-control" @bind="Connection.DbUserName"
+                                           placeholder="e.g., sa">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">DB Password</label>
+                                    <input type="password" class="form-control" @bind="Connection.DbPassword">
+                                </div>
+                            </div>
+                        }
+
+                        @if (SelectedTab == "sql")
+                        {
+                            <div class="mb-3">
+                                <label class="form-label">SQL Connection String</label>
+                                <textarea class="form-control" rows="3" @bind="SqlConnectionString"
+                                    placeholder="Server=localhost;Database=SBO_Common;User Id=sa;Password=...;"></textarea>
+                                <small class="text-muted">Connect to SBO_Common database to query SARI table</small>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Corsuite Database Name (optional)</label>
+                                <input type="text" class="form-control" @bind="CorsuiteDbName"
+                                       placeholder="e.g., Corsuite">
+                            </div>
+                        }
+
+                        @if (SelectedTab == "file")
+                        {
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle me-2"></i>
+                                Scan local file system for Corsuite DLL modules.
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Custom Path (optional)</label>
+                                <input type="text" class="form-control" @bind="CustomScanPath"
+                                       placeholder="C:\Program Files\Corsuite">
+                            </div>
+                            <div class="alert alert-secondary">
+                                <strong>Scanning locations:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>C:\Program Files\Corsuite</li>
+                                    <li>C:\Program Files (x86)\Corsuite</li>
+                                    <li>C:\ProgramData\Corsuite</li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="OnClose">
+                        <i class="bi bi-x-circle me-1"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" @onclick="HandleConnect" disabled="@IsConnecting">
+                        @if (IsConnecting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-1"></span>
+                            <span>Connecting...</span>
+                        }
+                        else
+                        {
+                            <i class="bi bi-link-45deg me-1"></i>
+                            <span>Connect</span>
+                        }
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool IsVisible { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> OnConnect { get; set; }
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    private string SelectedTab { get; set; } = "diapi";
+    private bool IsConnecting { get; set; }
+    private string? ErrorMessage { get; set; }
+
+    private SapConnectionDto Connection { get; set; } = new();
+    private string SqlConnectionString { get; set; } = string.Empty;
+    private string CorsuiteDbName { get; set; } = string.Empty;
+    private string CustomScanPath { get; set; } = string.Empty;
+
+    [Parameter]
+    public Func<SapConnectionDto, Task<bool>>? ConnectToSapAsync { get; set; }
+
+    [Parameter]
+    public Func<string, Task<IEnumerable<SapAddOnInfoDto>>>? QueryAddonsFromDatabaseAsync { get; set; }
+
+    [Parameter]
+    public Func<string, string, Task<IEnumerable<SapAddOnInfoDto>>>? QueryCorsuiteModulesAsync { get; set; }
+
+    [Parameter]
+    public Func<Task<IEnumerable<SapAddOnInfoDto>>>? ScanCorsuiteFilesAsync { get; set; }
+
+    private void SelectDiApi() => SelectedTab = "diapi";
+    private void SelectSql() => SelectedTab = "sql";
+    private void SelectFile() => SelectedTab = "file";
+
+    private async Task HandleConnect()
+    {
+        IsConnecting = true;
+        ErrorMessage = null;
+
+        try
+        {
+            switch (SelectedTab)
+            {
+                case "diapi":
+                    if (ConnectToSapAsync != null)
+                    {
+                        var connected = await ConnectToSapAsync(Connection);
+                        if (!connected)
+                        {
+                            ErrorMessage = "Failed to connect to SAP B1. Please check your credentials.";
+                            return;
+                        }
+                    }
+                    break;
+
+                case "sql":
+                    if (QueryCorsuiteModulesAsync != null && !string.IsNullOrEmpty(SqlConnectionString))
+                    {
+                        await QueryCorsuiteModulesAsync(SqlConnectionString, CorsuiteDbName);
+                    }
+                    else if (QueryAddonsFromDatabaseAsync != null && !string.IsNullOrEmpty(SqlConnectionString))
+                    {
+                        await QueryAddonsFromDatabaseAsync(SqlConnectionString);
+                    }
+                    break;
+
+                case "file":
+                    if (ScanCorsuiteFilesAsync != null)
+                    {
+                        await ScanCorsuiteFilesAsync();
+                    }
+                    break;
+            }
+
+            await OnConnect.InvokeAsync(true);
+            await OnClose.InvokeAsync();
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Error: {ex.Message}";
+        }
+        finally
+        {
+            IsConnecting = false;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CorsuiteAdmin.Api\CorsuiteAdmin.Api\CorsuiteAdmin.Api.csproj" />
+    <ProjectReference Include="..\..\CorsuiteAdmin.Shared\CorsuiteAdmin.Shared\CorsuiteAdmin.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise" Version="2.0.0" />
+    <PackageReference Include="Blazorise.Bootstrap5" Version="2.0.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="2.0.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+  </PropertyGroup>
+
+</Project>

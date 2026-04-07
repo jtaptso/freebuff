@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CorsuiteAdmin.Api/CorsuiteAdmin.Api/CorsuiteAdmin.Api.csproj" />
+    <Project Path="src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared.csproj" />
+    <Project Path="src/CorsuiteAdmin.Web/CorsuiteAdmin.Web/CorsuiteAdmin.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CorsuiteAdmin.Api.Tests/CorsuiteAdmin.Api.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,176 @@
+@if (IsVisible)
+{
+    <div class="modal d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@(IsEdit ? "Edit Module" : "Add New Module")</h5>
+                    <button type="button" class="btn-close" @onclick="OnClose"></button>
+                </div>
+                <div class="modal-body">
+                    <EditForm Model="ModuleModel" OnValidSubmit="HandleSubmit">
+                        <DataAnnotationsValidator />
+                        
+                        @if (!IsEdit)
+                        {
+                            <div class="mb-3">
+                                <label class="form-label">DLL File *</label>
+                                <InputFile OnChange="HandleFileChange" accept=".dll" class="form-control" />
+                                <ValidationMessage For="@(() => ModuleModel.Name)" />
+                            </div>
+                        }
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Module Name *</label>
+                                <InputText @bind-Value="ModuleModel.Name" class="form-control" 
+                                           disabled="@IsEdit" />
+                                <ValidationMessage For="@(() => ModuleModel.Name)" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Version *</label>
+                                <InputText @bind-Value="ModuleModel.Version" class="form-control" />
+                                <ValidationMessage For="@(() => ModuleModel.Version)" />
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <InputTextArea @bind-Value="ModuleModel.Description" class="form-control" rows="3" />
+                        </div>
+                        
+                        @if (IsEdit)
+                        {
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                <InputSelect @bind-Value="ModuleModel.Status" class="form-select">
+                                    <option value="@ModuleStatus.Active">Active</option>
+                                    <option value="@ModuleStatus.Inactive">Inactive</option>
+                                    <option value="@ModuleStatus.Error">Error</option>
+                                </InputSelect>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Update DLL File (Optional)</label>
+                                <InputFile OnChange="HandleFileChange" accept=".dll" class="form-control" />
+                            </div>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(ErrorMessage))
+                        {
+                            <div class="alert alert-danger">@ErrorMessage</div>
+                        }
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" @onclick="OnClose">Cancel</button>
+                            <button type="submit" class="btn btn-primary" disabled="@IsLoading">
+                                @if (IsLoading)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2"></span>
+                                }
+                                @(IsEdit ? "Update" : "Add")
+                            </button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool IsVisible { get; set; }
+
+    [Parameter]
+    public bool IsEdit { get; set; }
+
+    [Parameter]
+    public DllModuleDto? EditModule { get; set; }
+
+    [Parameter]
+    public EventCallback<ModuleSubmitEventArgs> OnSubmit { get; set; }
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    private ModuleSubmitModel ModuleModel { get; set; } = new();
+    private IBrowserFile? _selectedFile;
+    private bool IsLoading { get; set; }
+    private string ErrorMessage { get; set; } = "";
+
+    protected override void OnParametersSet()
+    {
+        if (IsVisible)
+        {
+            ErrorMessage = "";
+            if (IsEdit && EditModule != null)
+            {
+                ModuleModel = new ModuleSubmitModel
+                {
+                    Name = EditModule.Name,
+                    Version = EditModule.Version,
+                    Description = EditModule.Description ?? "",
+                    Status = EditModule.Status
+                };
+            }
+            else
+            {
+                ModuleModel = new ModuleSubmitModel();
+            }
+        }
+    }
+
+    private void HandleFileChange(InputFileChangeEventArgs e)
+    {
+        _selectedFile = e.File;
+        if (!IsEdit && _selectedFile != null)
+        {
+            var fileName = _selectedFile.Name;
+            ModuleModel.Name = Path.GetFileNameWithoutExtension(fileName);
+        }
+    }
+
+    private async Task HandleSubmit()
+    {
+        IsLoading = true;
+        ErrorMessage = "";
+
+        try
+        {
+            await OnSubmit.InvokeAsync(new ModuleSubmitEventArgs
+            {
+                Name = ModuleModel.Name,
+                Version = ModuleModel.Version,
+                Description = ModuleModel.Description,
+                Status = ModuleModel.Status,
+                File = _selectedFile
+            });
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+
+    private class ModuleSubmitModel
+    {
+        public string Name { get; set; } = "";
+        public string Version { get; set; } = "";
+        public string Description { get; set; } = "";
+        public ModuleStatus Status { get; set; } = ModuleStatus.Active;
+    }
+
+    public class ModuleSubmitEventArgs
+    {
+        public string Name { get; set; } = "";
+        public string Version { get; set; } = "";
+        public string? Description { get; set; }
+        public ModuleStatus Status { get; set; }
+        public IBrowserFile? File { get; set; }
+    }
+}
