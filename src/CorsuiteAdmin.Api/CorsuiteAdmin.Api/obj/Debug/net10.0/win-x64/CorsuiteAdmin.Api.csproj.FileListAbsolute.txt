@@ -213,3 +213,4 @@
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Api/CorsuiteAdmin.Api/obj/Debug/net10.0/win-x64/CorsuiteAdmin.Api.pdb
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Api/CorsuiteAdmin.Api/obj/Debug/net10.0/win-x64/CorsuiteAdmin.Api.genruntimeconfig.cache
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Api/CorsuiteAdmin.Api/obj/Debug/net10.0/win-x64/ref/CorsuiteAdmin.Api.dll
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Api/CorsuiteAdmin.Api/obj/Debug/net10.0/win-x64/CorsuiteAdmin.Api.sourcelink.json

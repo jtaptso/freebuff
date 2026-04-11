@@ -22,6 +22,13 @@ public class ConnectionInfo
     public string DbPassword { get; set; } = string.Empty;
     public string DbType { get; set; } = "dst_MSSQL2022";
     public string? LicenseServer { get; set; }
+    
+    // DI Server (Remote) connection properties
+    public string? DiServerUrl { get; set; }
+    public string? Language { get; set; }
+    
+    // Connection type indicator
+    public bool UseDiServer { get; set; }
 }
 
 public class SapAddOnInfo

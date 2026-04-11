@@ -9,3 +9,4 @@
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/refint/CorsuiteAdmin.Shared.dll
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.pdb
 /home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/ref/CorsuiteAdmin.Shared.dll
+/home/mtaptso/Documents/Projects/freebuff/src/CorsuiteAdmin.Shared/CorsuiteAdmin.Shared/obj/Debug/net10.0/CorsuiteAdmin.Shared.sourcelink.json

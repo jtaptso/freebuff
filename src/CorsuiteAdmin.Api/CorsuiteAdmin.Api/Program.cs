@@ -16,8 +16,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register module services
 builder.Services.AddScoped<IModuleService, ModuleService>();
 
-// Register SAP integration services
-builder.Services.AddSingleton<ISapConnectionService, SapDiApiConnectionService>();
+// Register SAP integration services - choose based on configuration
+// Use DI Server (remote) or local COM (DI API) based on configuration
+var useDiServer = builder.Configuration.GetValue<bool>("SAP:UseDiServer", false);
+if (useDiServer)
+{
+    builder.Services.AddSingleton<ISapConnectionService, SapDiServerConnectionService>();
+    builder.Services.AddSingleton<SapDiServerConnectionService>();
+}
+else
+{
+    builder.Services.AddSingleton<ISapConnectionService, SapDiApiConnectionService>();
+}
 builder.Services.AddScoped<ISqlConnectionValidator, SqlConnectionValidator>();
 builder.Services.AddScoped<ISapSqlQueryService, SapSqlQueryService>();
 builder.Services.AddSingleton<ICorsuiteFileScannerService, CorsuiteFileScannerService>();
