@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CorsuiteAdmin.Api.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53e7e08776a00d05c310d1b5088afcd6397c53b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CorsuiteAdmin.Api.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CorsuiteAdmin.Api.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

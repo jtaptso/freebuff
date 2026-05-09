@@ -180,8 +180,8 @@
 <!-- Dialogs -->
 <AddEditModuleDialog IsVisible="ShowAddEditDialog" 
                      IsEdit="IsEditMode"
-                     Module="SelectedModule"
-                     OnSave="SaveModule"
+                     EditModule="SelectedModule"
+                     OnSubmit="SaveModule"
                      OnClose="CloseAddEditDialog" />
 
 <ConfirmDialog IsVisible="ShowDeleteDialog"
@@ -281,18 +281,17 @@
         ShowAddEditDialog = true;
     }
 
-    private async Task SaveModule()
+    private async Task SaveModule(CorsuiteAdmin.Web.Components.AddEditModuleDialog.ModuleSubmitEventArgs args)
     {
-        if (SelectedModule == null) return;
-
         if (IsEditMode)
         {
+            if (SelectedModule == null) return;
             var updateRequest = new UpdateModuleRequestDto
             {
-                Name = SelectedModule.Name,
-                Version = SelectedModule.Version,
-                Description = SelectedModule.Description,
-                Status = SelectedModule.Status
+                Name = args.Name,
+                Version = args.Version,
+                Description = args.Description,
+                Status = args.Status
             };
             await ModuleService.UpdateModuleAsync(SelectedModule.Id, updateRequest);
             Toast?.Show("Success", "Module updated successfully", ToastNotification.ToastType.Success);
@@ -301,9 +300,9 @@
         {
             var createRequest = new CreateModuleRequestDto
             {
-                Name = SelectedModule.Name,
-                Version = SelectedModule.Version,
-                Description = SelectedModule.Description,
+                Name = args.Name,
+                Version = args.Version,
+                Description = args.Description,
                 AddedBy = "Admin"
             };
             await ModuleService.CreateModuleAsync(createRequest);

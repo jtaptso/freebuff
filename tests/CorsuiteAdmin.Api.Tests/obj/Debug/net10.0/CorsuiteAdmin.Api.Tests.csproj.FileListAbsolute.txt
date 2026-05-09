@@ -62,7 +62,6 @@
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Azure.Identity.dll
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Castle.Core.dll
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Interop.SAPbobsCOM.dll
-/home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Microsoft.AspNetCore.OpenApi.dll
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Microsoft.Data.SqlClient.dll
@@ -228,3 +227,5 @@
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/obj/Debug/net10.0/CorsuiteAdmin.Api.Tests.pdb
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/obj/Debug/net10.0/CorsuiteAdmin.Api.Tests.genruntimeconfig.cache
 /home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/obj/Debug/net10.0/ref/CorsuiteAdmin.Api.Tests.dll
+/home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/mtaptso/Documents/Projects/freebuff/tests/CorsuiteAdmin.Api.Tests/obj/Debug/net10.0/CorsuiteAdmin.Api.Tests.sourcelink.json
